@@ -5,6 +5,11 @@ var https = require('https');
 
 var dir = path.join(__dirname, '..', 'bin');
 var filepath = path.join(dir, 'youtube-dl');
+
+if (process.platform === 'win32') {
+  filepath += '.exe';
+}
+
 var verpath  = path.join(dir, 'version');
 
 
@@ -42,7 +47,14 @@ function getDownloadLink() {
         if (newVersion === oldVersion) {
           console.log('Already up to date', newVersion);
         } else {
-          download(m[0], function(err) {
+          var link = m[0];
+          if (process.platform === 'win32') {
+            link += '.exe';
+          }
+
+          console.log('Downloading "' + link + '"...');
+
+          download(link, function(err) {
             if (err) return onerr(err);
             fs.writeFileSync(verpath, newVersion);
             success = true;
