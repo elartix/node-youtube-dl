@@ -1,7 +1,7 @@
 var fs    = require('fs');
 var path  = require('path');
-var http  = require('http');
-var https = require('https');
+var http  = require('follow-redirects').http;
+var https = require('follow-redirects').https;
 
 var dir = path.join(__dirname, '..', 'bin');
 var filepath = path.join(dir, 'youtube-dl');
