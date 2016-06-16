@@ -5,3 +5,4 @@
 *.m4a
 node_modules
 bin
+.idea
