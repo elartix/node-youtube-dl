@@ -20,7 +20,7 @@
     "lib": "./lib"
   },
   "scripts": {
-    "preinstall": "node ./scripts/download.js",
+    "preinstall": "npm install follow-redirects && node ./scripts/download.js",
     "preupdate": "node ./scripts/download.js",
     "test": "vows ./test/*.js --spec"
   },
