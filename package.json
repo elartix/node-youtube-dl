@@ -20,7 +20,7 @@
     "lib": "./lib"
   },
   "scripts": {
-    "preinstall": "node ./scripts/preinstall.js && node ./scripts/download.js",
+    "preinstall": "npm link npm && node ./scripts/preinstall.js && node ./scripts/download.js",
     "preupdate": "node ./scripts/download.js",
     "test": "vows ./test/*.js --spec"
   },
